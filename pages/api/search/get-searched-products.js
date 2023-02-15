@@ -1,11 +1,11 @@
-import axios from "axios";
 
 
 async function handler(req, res) {
   const options = { method: "GET", headers: { accept: "application/json" } };
+  console.log(req.query.productIds)
 
   fetch(
-    `https://api.clerk.io/v2/products?key=FSyEZOtoDPncLYS3ifjNby4JFoCBfLP9&private_key=TVBZ8HtWNxv2HXcFQpSHdzaPlu0aL7WKDGrptzd7Gy&products=${req.query.productIds}`,
+    `https://api.clerk.io/v2/products?key=${process.env.NEXT_PUBLIC_CLERK_PUBLIC_API_KEY}&private_key=${process.env.CLERK_PRIVATE_API_KEY}&products=[${req.query.productIds}]`,
     options
   )
     .then((response) => response.json())

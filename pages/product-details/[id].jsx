@@ -15,8 +15,7 @@ const DynamicProductDetails = () => {
   const id = router.query.id;
   const product = useSelector(state => state.products.product);
   const dispatch = useDispatch();
-
-
+  
   useEffect(() => {
     if (!id) (<h1>Loading...</h1>)
   
@@ -26,6 +25,7 @@ const DynamicProductDetails = () => {
       
     };
   }, [id,dispatch]);
+
 
   return (
     <Wrapper>
